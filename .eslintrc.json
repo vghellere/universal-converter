@@ -1,12 +1,75 @@
 {
-  "plugins": ["@typescript-eslint"],
   "extends": [
-    "next/core-web-vitals",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "airbnb",
+    "next/core-web-vitals",
+    "next",
     "prettier"
   ],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
   "rules": {
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error"
+    "prettier/prettier": "error",
+    "import/prefer-default-export": "off",
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/jsx-props-no-spreading": 0,
+    "react/require-default-props": 0,
+    "import/extensions": 0,
+    "react/prop-types": 0,
+
+    /**
+     * @see https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+     */
+    "react/jsx-filename-extension": [
+      "warn",
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+
+    /**
+     * Enforce a convention in module import order
+     * @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
+     */
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [
+          ["external", "builtin"],
+          ["internal"],
+          ["parent", "sibling", "index"]
+        ]
+      }
+    ],
+
+    /**
+     * Disallow unused variables and arguments
+     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars-experimental.md
+     */
+    "no-unused-vars": 0,
+    "@typescript-eslint/no-unused-vars": [
+      2,
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+
+    /**
+     * Disallow use before define
+     * @see https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
+     */
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"]
   }
 }
