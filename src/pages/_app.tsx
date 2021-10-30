@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { NextSeo } from 'next-seo';
 import { ChakraProvider } from '@chakra-ui/react';
 
+import { init } from 'lib/utils/ga';
 import theme from 'lib/settings/theme';
 
 const metaTags = [
@@ -17,6 +19,10 @@ const metaTags = [
 ];
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    init('G-SFF4Y675Q8');
+  }, []);
+
   return (
     <>
       <NextSeo
