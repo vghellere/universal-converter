@@ -4,7 +4,7 @@ const Card = ({ children, ...props }: BoxProps) => (
   <Box
     name='card'
     bgColor='white'
-    w={['80%']}
+    w={['100%', '80%']}
     maxW='700px'
     p={10}
     borderRadius={12}
