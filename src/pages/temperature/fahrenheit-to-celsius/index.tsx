@@ -60,8 +60,11 @@ const FahrenheitToCelsius: NextPage = () => {
                 mt={8}
                 onChange={(valueString) => setValue(valueString)}
               >
-                <NumberInputField placeholder='ºF' />
-                <NumberInputStepper>
+                <NumberInputField h='48px' placeholder='ºF' />
+                <NumberInputStepper
+                  w={['96px', '48px']}
+                  flexDir={['row', 'column']}
+                >
                   <NumberIncrementStepper />
                   <NumberDecrementStepper />
                 </NumberInputStepper>
