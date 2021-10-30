@@ -28,6 +28,14 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChakraProvider resetCSS theme={theme}>
         <Component {...pageProps} />
       </ChakraProvider>
+      <style global jsx>{`
+        html,
+        body,
+        body > div:first-child,
+        div#__next {
+          height: 100%;
+        }
+      `}</style>
     </>
   );
 }
